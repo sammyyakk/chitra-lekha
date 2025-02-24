@@ -40,7 +40,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.4 } // Lowered for better detection
+      { threshold: 0.2 } // Lowered for better detection
     );
 
     sectionsRef.current.forEach((section) => {
@@ -65,7 +65,7 @@ export default function Home() {
           className="w-full flex flex-col items-center justify-center py-20 transition-opacity duration-500"
           style={{
             opacity: activeSection === index ? 1 : 0.5,
-            transform: `translateY(${activeSection === index ? "0px" : "20px"})`,
+            transform: `translateY(${activeSection === index ? "0px" : "90px"})`,
           }}
         >
           <div className="w-full max-w-8xl flex flex-col gap-16">

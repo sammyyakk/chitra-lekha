@@ -36,7 +36,7 @@ export const TechServicesSection = () => {
   const iconColor = theme === "dark" || !theme ? "white" : "black";
 
   return (
-    <section id="tech-services" className="max-w-[75%] mx-auto pb-8 sm:pb-10 max-h-60">
+    <section id="tech-services" className="max-w-[75%] mx-auto pb-5 sm:pb-10 max-h-60">
       <h2 className="text-lg text-primary tracking-wider font-bold text-center">
         Tech & Services
       </h2>

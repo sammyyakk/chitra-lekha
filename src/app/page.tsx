@@ -58,17 +58,19 @@ export default function Home() {
     <div className="relative">
       {sections.map((SectionGroup, index) => (
         <motion.div
-          key={index}
-          ref={(el) => (sectionsRef.current[index] = el)}
-          className="h-screen w-full flex flex-col items-center justify-center gap-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: activeSection === index ? 1 : 0.5 }}
-          transition={{ duration: 0.5 }}
-        >
-          {SectionGroup.map((Component, subIndex) => (
-            <Component key={subIndex} />
-          ))}
-        </motion.div>
+        key={index}
+        ref={(el) => {
+          sectionsRef.current[index] = el;
+        }}
+        className="h-screen w-full flex flex-col items-center justify-center gap-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: activeSection === index ? 1 : 0.5 }}
+        transition={{ duration: 0.5 }}
+      >
+        {SectionGroup.map((Component, subIndex) => (
+          <Component key={subIndex} />
+        ))}
+      </motion.div>      
       ))}
     </div>
   );

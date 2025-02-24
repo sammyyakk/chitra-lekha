@@ -23,7 +23,7 @@ const sections = [
 ];
 
 export default function Home() {
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeSection, setActiveSection] = useState(0);
 
   useEffect(() => {
@@ -31,7 +31,12 @@ export default function Home() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(sectionsRef.current.indexOf(entry.target));
+            const targetIndex = sectionsRef.current.findIndex(
+              (el) => el === entry.target
+            );
+            if (targetIndex !== -1) {
+              setActiveSection(targetIndex);
+            }
           }
         });
       },

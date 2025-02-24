@@ -38,7 +38,7 @@ export const TechServicesSection = () => {
   return (
     <section id="tech-services" className="max-w-[75%] mx-auto pb-5 sm:pb-10 max-h-60">
       <h2 className="text-lg text-primary tracking-wider font-bold text-center">
-        Tech & Services
+        Tech & Services Used
       </h2>
       <br />
       <div className="mx-auto">

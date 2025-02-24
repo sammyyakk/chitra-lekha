@@ -106,6 +106,17 @@ html {
     --radius: 0.5rem;
   }
 
+  @font-face {
+    font-family: 'Samarkan Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Samarkan Normal'), url('/fonts/SAMARN__.woff') format('woff');
+    }
+  
+  .font-samarkan {
+    font-family: "Samarkan", cursive;
+  }
+
   .dark {
     --background: 20 14.3% 4.1%;
     --foreground: 60 9.1% 97.8%;
@@ -152,15 +163,4 @@ html {
   body {
     @apply bg-background text-foreground;
   }
-}
-
-@font-face {
-  font-family: 'Samarkan Normal';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Samarkan Normal'), url('/fonts/SAMARN__.woff') format('woff');
-  }
-
-.font-samarkan {
-  font-family: "Samarkan", cursive;
 }

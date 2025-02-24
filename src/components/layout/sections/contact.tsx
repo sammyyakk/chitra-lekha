@@ -74,7 +74,7 @@ export const ContactSection = () => {
                 <div className="font-bold">Find us</div>
               </div>
 
-              <div>Bharati Vidyapeeth's College of Engineering, New Delhi</div>
+              <div>Bharati Vidyapeeth&apos;s College of Engineering, New Delhi</div>
             </div>
 
             <div>

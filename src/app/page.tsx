@@ -40,7 +40,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.4 } // Lowered for better detection
     );
 
     sectionsRef.current.forEach((section) => {
@@ -58,19 +58,22 @@ export default function Home() {
     <div className="relative">
       {sections.map((SectionGroup, index) => (
         <motion.div
-        key={index}
-        ref={(el) => {
-          sectionsRef.current[index] = el;
-        }}
-        className="h-screen w-full flex flex-col items-center justify-center gap-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: activeSection === index ? 1 : 0.5 }}
-        transition={{ duration: 0.5 }}
-      >
-        {SectionGroup.map((Component, subIndex) => (
-          <Component key={subIndex} />
-        ))}
-      </motion.div>      
+          key={index}
+          ref={(el) => {
+            sectionsRef.current[index] = el;
+          }}
+          className="w-full flex flex-col items-center justify-center py-20 transition-opacity duration-500"
+          style={{
+            opacity: activeSection === index ? 1 : 0.5,
+            transform: `translateY(${activeSection === index ? "0px" : "20px"})`,
+          }}
+        >
+          <div className="w-full max-w-8xl flex flex-col gap-16">
+            {SectionGroup.map((Component, subIndex) => (
+              <Component key={subIndex} />
+            ))}
+          </div>
+        </motion.div>
       ))}
     </div>
   );

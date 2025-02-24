@@ -76,7 +76,7 @@ export const TeamSection = () => {
       ],
     },
     {
-      imageUrl: "https://avatars.githubusercontent.com/u/75042455?v=4",
+      imageUrl: "/team/bhawna.jpg",
       firstName: "Bhawna",
       lastName: "Mittal",
       positions: ["UI/UX Developer","FrontEnd Designer"],

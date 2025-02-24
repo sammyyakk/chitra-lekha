@@ -1,56 +1,70 @@
+"use client";
+
 import { BenefitsSection } from "@/components/layout/sections/benefits";
-import { CommunitySection } from "@/components/layout/sections/community";
 import { ContactSection } from "@/components/layout/sections/contact";
 import { FAQSection } from "@/components/layout/sections/faq";
 import { FeaturesSection } from "@/components/layout/sections/features";
 import { FooterSection } from "@/components/layout/sections/footer";
 import { HeroSection } from "@/components/layout/sections/hero";
 import { PricingSection } from "@/components/layout/sections/pricing";
-import { ServicesSection } from "@/components/layout/sections/services";
 import { TechServicesSection } from "@/components/layout/sections/tech-sec";
 import { TeamSection } from "@/components/layout/sections/team";
-import { TestimonialSection } from "@/components/layout/sections/testimonial";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
-export const metadata = {
-  title: "Deep Vision Semantics Encoder",
-  description: "By Team Semantix",
-  openGraph: {
-    type: "website",
-    url: "https://github.com/sammyyakk/semantix.git",
-    title: "Deep Vision Semantics Encoder",
-    description: "By Team Semantix",
-    images: [
-      {
-        url: "https://res.cloudinary.com/dbzv9xfjp/image/upload/v1723499276/og-images/shadcn-vue.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Deep Vision Semantics Encoder",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "https://github.com/nobruf/shadcn-landing-page.git",
-    title: "Shadcn - Landing template",
-    description: "Free Shadcn landing page for developers",
-    images: [
-      "https://res.cloudinary.com/dbzv9xfjp/image/upload/v1723499276/og-images/shadcn-vue.jpg",
-    ],
-  },
-};
+const sections = [
+  [HeroSection, TechServicesSection], // Grouped together
+  [BenefitsSection],
+  [FeaturesSection],
+  [TeamSection],
+  [PricingSection],
+  [ContactSection],
+  [FAQSection, FooterSection], // Grouped together
+];
 
 export default function Home() {
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const [activeSection, setActiveSection] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(sectionsRef.current.indexOf(entry.target));
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sectionsRef.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sectionsRef.current.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
-    <>
-      <HeroSection />
-      <TechServicesSection />
-      <BenefitsSection />
-      <FeaturesSection />
-      <TeamSection />
-      <PricingSection />
-      <ContactSection />
-      <FAQSection />
-      <FooterSection />
-    </>
+    <div className="relative">
+      {sections.map((SectionGroup, index) => (
+        <motion.div
+          key={index}
+          ref={(el) => (sectionsRef.current[index] = el)}
+          className="h-screen w-full flex flex-col items-center justify-center gap-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: activeSection === index ? 1 : 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
+          {SectionGroup.map((Component, subIndex) => (
+            <Component key={subIndex} />
+          ))}
+        </motion.div>
+      ))}
+    </div>
   );
 }

@@ -14,9 +14,9 @@ export const HeroSection = () => {
         <div className="text-center space-y-8">
           <div className="max-w-screen-md mx-auto text-center text-4xl md:text-6xl font-bold">
             <h1>
-              Transform Your Images with{" "}
+              Transform Your Images with
               <span className="font-samarkan text-transparent px-3 bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text">
-                Chitra Vibe
+                Chitra Lekha
               </span>
 
             </h1>

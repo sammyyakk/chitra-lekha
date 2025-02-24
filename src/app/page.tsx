@@ -9,7 +9,7 @@ import { HeroSection } from "@/components/layout/sections/hero";
 import { PricingSection } from "@/components/layout/sections/pricing";
 import { TechServicesSection } from "@/components/layout/sections/tech-sec";
 import { TeamSection } from "@/components/layout/sections/team";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 const sections = [
@@ -40,7 +40,7 @@ export default function Home() {
 function SectionWrapper({ children }: { children: React.ReactNode }) {
   const ref = useRef(null);
   const controls = useAnimation();
-  const inView = useInView(ref, { threshold: 0.2 });
+  const inView = useInView(ref, { amount: 0.2 }); // ✅ Fixed threshold issue
 
   useEffect(() => {
     if (inView) {

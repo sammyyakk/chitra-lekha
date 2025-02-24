@@ -1,0 +1,66 @@
+/* Hide the default cursor globally */
+* {
+    cursor: none;
+}
+
+/* Main glowing dot */
+.custom-cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 0, 128, 1);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
+    z-index: 9999;
+}
+
+/* Smooth glowing follower effect */
+.cursor-trail {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 0, 128, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(10px);
+    transition: transform 0.15s ease-out, width 0.2s ease, height 0.2s ease;
+    z-index: 9998;
+}
+
+/* Ensure difference mode works properly in dark mode */
+html.dark .custom-cursor, 
+html.dark .cursor-trail {
+    mix-blend-mode: difference;
+}
+
+/* Force a solid pink cursor in light mode */
+html.light .custom-cursor, 
+html.light .cursor-trail {
+    mix-blend-mode: normal; 
+}
+
+/* When hovering over a link or button */
+.cursor-hover {
+    width: 25px;
+    height: 25px;
+}
+
+.trail-hover {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 0, 128, 0.3);
+}
+
+/* Make sure no hand cursor shows on links & buttons */
+a, button {
+    cursor: none !important;
+}
+
+/* Disable custom cursor on mobile */
+@media (max-width: 768px) {
+    .custom-cursor,
+    .cursor-trail {
+        display: none !important;
+    }
+}

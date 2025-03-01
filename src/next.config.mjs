@@ -1,25 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.pravatar.cc",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "github.com",
-      },
-      {
-        protocol: "https",
-        hostname: "avatars.githubusercontent.com",
-      },
-    ],
+import nextra from 'nextra'
+ 
+const withNextra = nextra({
+  contentDirBasePath: '/content/docs',
+  search: {
+    codeblocks: true,
   },
-};
+})
 
-export default nextConfig;
+const nextConfig = withNextra({
+  reactStrictMode: true,
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+});

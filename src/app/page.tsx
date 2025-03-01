@@ -11,7 +11,6 @@ import { TechServicesSection } from "@/components/layout/sections/tech-sec";
 import { TeamSection } from "@/components/layout/sections/team";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-
 const sections = [
   [HeroSection, TechServicesSection], // Grouped together
   [BenefitsSection],

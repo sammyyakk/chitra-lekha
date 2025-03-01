@@ -7,9 +7,13 @@ module.exports = {
   prefix: "",
 
   content: [
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx,md,mdx}",
+    "./app/**/*.{ts,tsx,md,mdx}",
+    "./src/**/*.{ts,tsx,md,mdx}",
+    "./content/**/*.{md,mdx}", // 👈 Ensures Tailwind scans MDX docs
+    "./pages/**/*.{md,mdx}", // 👈 If your docs are inside `pages/`
+    "./pages/**/*.{ts,tsx,md,mdx}", // 🔥 Nextra requires MDX in pages/
+    "./content/**/*.{md,mdx}", // 🔥 Your custom content directory
   ],
 
   theme: {
@@ -87,7 +91,7 @@ module.exports = {
         "collapsible-up": "collapsible-up 0.2s ease-in-out",
       },
       fontFamily: {
-        samarkan: ['"Samarkan"', 'cursive'], // Fallback can be adjusted
+        samarkan: ['"Samarkan"', "cursive"], // Fallback can be adjusted
       },
     },
   },

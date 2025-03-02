@@ -18,7 +18,6 @@ export const HeroSection = () => {
               <span className="font-samarkan text-transparent px-3 bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text">
                 Chitra Lekha
               </span>
-
             </h1>
           </div>
 
@@ -30,11 +29,15 @@ export const HeroSection = () => {
 
           <div className="space-y-4 md:space-y-0 md:space-x-4">
             <Button className="w-5/6 md:w-1/4 font-bold group/arrow">
-              Get Started
+              <Link href="/docs">Get Started</Link>
               <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
             </Button>
 
-            <Button asChild variant="secondary" className="w-5/6 md:w-1/4 font-bold">
+            <Button
+              asChild
+              variant="secondary"
+              className="w-5/6 md:w-1/4 font-bold"
+            >
               <Link
                 href="https://github.com/sammyyakk/chitra-lekha"
                 target="_blank"
@@ -44,7 +47,7 @@ export const HeroSection = () => {
             </Button>
           </div>
         </div>
-        </div>
+      </div>
     </section>
   );
 };

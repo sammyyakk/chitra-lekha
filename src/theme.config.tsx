@@ -47,10 +47,13 @@ const config: ExtendedDocsThemeConfig = {
       </motion.div>
     </AnimatePresence>
   ),
-  // Add default configuration for NotFoundPage
-  notFound: {
-    content: "Submit an issue about broken link", // Customize default content
-    labels: "broken-link", // Default labels for issues
+  color: {
+    hue: 21,
+    saturation: 100,
+    lightness: {
+      dark: 60,
+      light: 50,
+    },
   },
 };
 

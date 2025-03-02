@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+:target {
+  scroll-margin-top: 60px; /* Adjust based on your navbar height */
+}
+
+
 /* ========== Orange Theme ========== */
 @layer base {
   :root {

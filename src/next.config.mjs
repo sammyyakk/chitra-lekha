@@ -1,13 +1,18 @@
-import nextra from 'nextra'
- 
+/** @type {import('next').NextConfig} */
+import nextra from 'nextra';
+
 const withNextra = nextra({
-  contentDirBasePath: '/content/docs',
-  search: {
-    codeblocks: true,
-  },
-})
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.tsx',
+  defaultShowCopyCode: true,
+});
 
 const nextConfig = withNextra({
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  images: {
+    domains: ['avatars.githubusercontent.com'], // Allow images from GitHub avatars
+  },
 });
+
+export default nextConfig;

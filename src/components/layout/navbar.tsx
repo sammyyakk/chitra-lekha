@@ -51,23 +51,25 @@ const routeList: RouteProps[] = [
 const featureList: FeatureProps[] = [
   {
     title: "AI-Powered Image Captioning",
-    description: "Leverage deep vision semantics to generate accurate and meaningful image descriptions.",
+    description:
+      "Leverage deep vision semantics to generate accurate and meaningful image descriptions.",
   },
   {
     title: "Seamless Integration",
-    description: "Easily integrate with various applications for automatic image understanding and accessibility.",
+    description:
+      "Easily integrate with various applications for automatic image understanding and accessibility.",
   },
   {
     title: "Optimized for Performance",
-    description: "Utilizes a ResNet-50 + LSTM model to ensure efficient and high-quality caption generation.",
+    description:
+      "Utilizes a ResNet-50 + LSTM model to ensure efficient and high-quality caption generation.",
   },
 ];
-
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
+    <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-2 border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
       <Link href="/" className="font-samarkan text-2xl flex items-center">
         <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
         Chitra Lekha
@@ -89,10 +91,13 @@ export const Navbar = () => {
             <div>
               <SheetHeader className="mb-4 ml-4">
                 <SheetTitle className="flex items-center">
-                <Link href="/" className="flex font-samarkan items-center text-3xl font-bold">
-                  <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
-                  Chitra Lekha
-                </Link>
+                  <Link
+                    href="/"
+                    className="flex font-samarkan items-center text-3xl font-bold"
+                  >
+                    <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
+                    Chitra Lekha
+                  </Link>
                 </SheetTitle>
               </SheetHeader>
 
@@ -125,7 +130,9 @@ export const Navbar = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="bg-card text-base">
-              Features
+              <Link href="/#features" className="ghost">
+                Features
+              </Link>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="grid w-[600px] grid-cols-2 gap-5 p-4">

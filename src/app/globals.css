@@ -21,7 +21,7 @@ html {
     --primary: 24.6 95% 53.1%;
     --primary-foreground: 60 9.1% 97.8%;
 
-    --secondary: 60 4.8% 95.9%;
+    --secondary: 60 4.8% 90%; /* Darkened */
     --secondary-foreground: 24 9.8% 10%;
 
     --muted: var(--secondary);
@@ -37,6 +37,7 @@ html {
     --input: var(--border);
     --ring: var(--primary);
     --radius: 0.5rem;
+    
     @font-face {
       font-family: "Samarkan Normal";
       src: url('/fonts/samarkan.TTF') format('truetype');
